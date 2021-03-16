@@ -1,29 +1,27 @@
-import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class Library {
 
+    private String name;
     private int capacity;
     private ArrayList<Book> bookCollection;
 
-    public Library(int capacity){
+    public Library(String name, int capacity){
+        this.name = name;
         this.capacity = capacity;
         this.bookCollection = new ArrayList<>();
     }
 
 
-
-    public int hasBooks() {
-        return bookCollection.size();
-    }
-
-
-    public int countBook() {
+    public int countBooks() {
         return this.bookCollection.size();
     }
 
     public void addBook(Book book) {
-        this.bookCollection.add(book);
+        if (countBooks() < this.capacity) {
+            this.bookCollection.add(book);
+        }
+
     }
 }
 
